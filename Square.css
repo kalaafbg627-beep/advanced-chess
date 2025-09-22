@@ -1,0 +1,4 @@
+.square { width:60px; height:60px; display:flex; align-items:center; justify-content:center; }
+.white { background:#f0d9b5; } .black { background:#b58863; }
+.selected { outline: 3px solid yellow; } .valid { outline: 2px solid green; }
+.piece { font-size:24px; }
