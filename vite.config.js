@@ -1,17 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',       // 🔑 ensures relative paths for deploys (Vercel / GitHub Pages)
+  base: './', // ensures relative paths for deploys
   build: {
     outDir: 'dist',
-    emptyOutDir: true,
+    rollupOptions: {
+      external: ['/src/main.jsx'], // 🔑 externalize main entry to avoid build errors
+    },
   },
   resolve: {
     alias: {
-      '@': '/src',  // optional: allows imports like '@/components/Board'
+      '@': '/src',
     },
   },
 })
