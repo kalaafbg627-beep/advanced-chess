@@ -1,10 +1,16 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/kalaafbg627-beep/'});
-
-git add .
-git commit -m "Fix: move index.html to root for Vite build"
-git push origin main
+  resolve: {
+    alias: {
+      '@': '/src', // optional: lets you import like '@/components/Board'
+    },
+  },
+  build: {
+    outDir: 'dist',
+  },
+})
